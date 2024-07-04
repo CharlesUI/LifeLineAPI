@@ -22,7 +22,11 @@ const connectDb = require('./db/connect')
 
 //middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: ["https://tomei-customer.vercel.app/contact"],
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+    credentials: true
+}))
 
 //routes
 app.use('/api/v1/admin', adminRouter)
