@@ -21,7 +21,6 @@ const errorHandlerMiddleware = require('./middlewares/errorHandlerMiddleware')
 const connectDb = require('./db/connect')
 
 //middlewares
-app.use(express.json())
 const corsOptions = {
     origin: ["https://tomei-customer.vercel.app/"],
     methods: ["GET", "POST", "PATCH", "DELETE"],
@@ -29,6 +28,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(express.json())
 
 //routes
 app.use('/api/v1/admin', adminRouter)
