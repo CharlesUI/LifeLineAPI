@@ -21,7 +21,7 @@ const errorHandlerMiddleware = require('./middlewares/errorHandlerMiddleware');
 const connectDb = require('./db/connect');
 
 const corsOptions = {
-    origin: "https://tomei-customer.vercel.app",
+    origin: "https://tomei-customer.vercel.app/",
     methods: ["GET", "POST", "PATCH", "DELETE"],
     allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
     credentials: true   // enable credentials (cookies, authorization headers) cross-origin
