@@ -8,7 +8,7 @@ const app = express();
 const cors = require('cors');
 
 // Routers
-const playerRouter = require('./routes/playerRouter')
+const clientRouter = require('./routes/playerRouter');
 
 // middlewareHandlers
 const notFound = require('./middlewares/notFound');
@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.json());
 
 // routes
-app.use('/api/v1/player', playerRouter);
+app.use('/api/v1/client', clientRouter);
 
 // Error Handlers
 app.use(notFound);
