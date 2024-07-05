@@ -7,7 +7,7 @@ const playerSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true },
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    displayName: String,
+    displayName: { type: String },
     // Add more fields as needed
   },
   { timestamps: true }

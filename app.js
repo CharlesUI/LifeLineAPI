@@ -8,7 +8,7 @@ const app = express();
 const cors = require('cors');
 
 // Routers
-const clientRouter = require('./routes/playerRouter');
+const playerRouter = require('./routes/playerRouter');
 
 // middlewareHandlers
 const notFound = require('./middlewares/notFound');
@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.json());
 
 // routes
-app.use('/api/v1/client', clientRouter);
+app.use('/api/v1/player', playerRouter);
 
 // Error Handlers
 app.use(notFound);
@@ -31,7 +31,7 @@ const port = process.env.PORT || 5000;
 const start = async () => {
     try {
         await connectDb(process.env.MONGO_URI);
-        app.listen(port, () => console.log('Connecting to port TOMEIY'));
+        app.listen(port, () => console.log('Connecting to port LIFELINE'));
     } catch (error) {
         console.log(error);
     }
