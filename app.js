@@ -1,8 +1,6 @@
 // require necessary non-constant libraries
 require('dotenv').config();
 require('express-async-errors');
-const path = require('path');
-
 
 // constant libraries
 const express = require('express');
@@ -31,7 +29,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../client/dist')));  // Serve static files
+
 // routes
 app.use('/api/v1/admin', adminRouter);
 app.use('/api/v1/client', clientRouter);
@@ -39,11 +37,6 @@ app.use('/api/v1/car', carRouter);
 app.use('/api/v1/rental', carRentalRouter);
 app.use('/api/v1/comment', commentRouter);
 app.use('/api/v1/contact-us', contactRouter);
-
-// Catch-all route to serve index.html for React Router
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
-});
 
 // Error Handlers
 app.use(notFound);
