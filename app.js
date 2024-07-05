@@ -20,15 +20,14 @@ const notFound = require('./middlewares/notFound');
 const errorHandlerMiddleware = require('./middlewares/errorHandlerMiddleware');
 const connectDb = require('./db/connect');
 
+// middlewares
 const corsOptions = {
-    origin: "https://tomei-customer.vercel.app/",
+    origin: ["https://tomei-customer.vercel.app/"],
     methods: ["GET", "POST", "PATCH", "DELETE"],
-    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
-    credentials: true   // enable credentials (cookies, authorization headers) cross-origin
+    credentials: true
 };
 
 app.use(cors(corsOptions));
-
 app.use(express.json());
 
 // routes
@@ -42,6 +41,15 @@ app.use('/api/v1/contact-us', contactRouter);
 // Error Handlers
 app.use(notFound);
 app.use(errorHandlerMiddleware);
+
+// CORS headers middleware
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://tomei-customer.vercel.app/');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+});
 
 // db connection
 const port = process.env.PORT || 5000;
