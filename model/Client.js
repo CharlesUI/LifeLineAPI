@@ -54,7 +54,7 @@ ClientSchema.methods.createToken = function () {
   const token = jwt.sign(
     { userId: this._id, email: this.email },
     process.env.JWT_SECRET,
-    { expiresIn: process.env.JWT_LIFETIME }
+    { expiresIn: "7d" }
   );
   return token
 };

@@ -161,8 +161,8 @@ const registerClient = async (req, res) => {
       contact: client.contact,
     });
   } catch (error) {
-    console.error("Error:", error);
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: "Server error" });
+    console.error("Registration Error:", error.stack);
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: "Registration: Server error", error });
   }
 };
 

@@ -62,7 +62,7 @@ AdminSchema.methods.createToken = function () {
   const token = jwt.sign(
     { adminId: this._id, username: this.username },
     process.env.JWT_SECRET,
-    { expiresIn: process.env.JWT_LIFETIME }
+    { expiresIn: "7d" }
   );
   return token
 };
