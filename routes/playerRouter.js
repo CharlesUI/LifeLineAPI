@@ -8,7 +8,7 @@ const {
   registerPlayer,
   updatePlayer,
   deletePlayer,
-} = require('../controllers/clientController');
+} = require('../controllers/playerController');
 
 router.route('/register').post(registerPlayer)
 router.route('/login').post(loginPlayer)

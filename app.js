@@ -1,11 +1,11 @@
 // require necessary non-constant libraries
 require('dotenv').config();
 require('express-async-errors');
-
 // constant libraries
 const express = require('express');
 const app = express();
 const cors = require('cors');
+
 
 // Routers
 const playerRouter = require('./routes/playerRouter');
