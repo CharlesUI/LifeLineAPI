@@ -31,6 +31,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'dist')));  // Serve static files
 
 // routes
 app.use('/api/v1/admin', adminRouter);
@@ -40,12 +41,9 @@ app.use('/api/v1/rental', carRentalRouter);
 app.use('/api/v1/comment', commentRouter);
 app.use('/api/v1/contact-us', contactRouter);
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'build')));
-
 // Catch-all route to serve index.html for React Router
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 // Error Handlers
