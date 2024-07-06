@@ -154,9 +154,9 @@ const registerPlayer = async (req, res) => {
     res.status(StatusCodes.CREATED).json({
       token,
       _id: player._id,
+      customId: player.customId,
       email: player.email,
       username: player.username,
-      password: player.password,
       displayName: player.displayName,
     });
   } catch (error) {
@@ -166,6 +166,7 @@ const registerPlayer = async (req, res) => {
       .json({ message: "Registration: Server error", error });
   }
 };
+
 
 module.exports = {
   changePassword,
