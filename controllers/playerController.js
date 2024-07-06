@@ -56,11 +56,10 @@ const loginPlayer = async (req, res) => {
     token,
     ...{
       _id: player._id,
-      firstName: player.firstName,
-      lastName: player.lastName,
+      customId: player.customId,
       email: player.email,
-      birthDate: player.birthDate,
-      contact: player.contact,
+      username: player.username,
+      displayName: player.displayName,
     },
   });
 };
