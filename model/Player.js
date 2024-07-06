@@ -15,7 +15,7 @@ const playerSchema = new mongoose.Schema(
 
 // Pre-save middleware to hash the password before saving
 playerSchema.pre("save", async function (next) {
-  console.log("SAVING>>>>");
+  console.log("SAVING");
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
   next();
